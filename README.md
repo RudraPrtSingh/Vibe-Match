@@ -1,60 +1,55 @@
-# 🎵 Vibe Match
+# Vibe Match
 
-> **Dial in a feeling. Get songs that match it.**
+**Dial in a feeling. Get songs that match it.**
 
 Vibe Match is an interactive music discovery tool that recommends songs based on your current mood. Adjust sliders for energy, mood, danceability, texture, and tempo — and instantly see the top tracks that match your vibe.
 
-🔗 **[Try it live →](https://RudraPrtSingh.github.io/Vibe-Match)**
+**[Live Demo](https://RudraPrtSingh.github.io/Vibe-Match)**
 
 ---
 
-## ✨ Features
+## Features
 
-| Feature | Description |
-|---------|-------------|
-| 🎛️ **Vibe Sliders** | Fine-tune 5 dimensions — Energy, Mood, Danceability, Texture & Tempo |
-| 🎯 **Smart Matching** | Euclidean distance algorithm scores every song against your vibe |
-| 🎭 **Mood Presets** | One-click presets like *Rainy Day*, *Workout Hype*, *Heartbreak* & more |
-| 🎲 **Surprise Me** | Random vibe generator for unexpected discoveries |
-| 🏷️ **Genre Filters** | Filter by Pop, Rock, Hip-Hop, Electronic, Classical, and more |
-| 📊 **Compare Panel** | See how a song's attributes stack up against your vibe settings |
-| 🎧 **Built-in Player** | Preview tracks with auto-queue to the next best match |
+- **Vibe Sliders** — Fine-tune 5 audio dimensions: Energy, Mood, Danceability, Texture, and Tempo.
+- **Smart Matching** — Euclidean distance algorithm scores every song against your vibe in real time.
+- **Mood Presets** — One-click presets including Rainy Day, Workout Hype, Heartbreak, Party Night, and more.
+- **Surprise Me** — Randomize all sliders to discover unexpected matches.
+- **Genre Filters** — Narrow results by Pop, Rock, Hip-Hop, Electronic, Classical, and other genre buckets.
+- **Compare Panel** — Inspect how a song's attributes align with your current vibe settings.
+- **Built-in Player** — Preview tracks directly in the app with auto-queue to the next best match.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **React 18** — Component-based UI
-- **Vite 5** — Lightning-fast dev server & build tool
-- **Vanilla CSS** — Custom design system with glassmorphism & micro-animations
-- **gh-pages** — Automated GitHub Pages deployment
+| Layer | Technology |
+|-------|------------|
+| UI Framework | React 18 |
+| Build Tool | Vite 5 |
+| Styling | Vanilla CSS (custom design system) |
+| Deployment | GitHub Pages via gh-pages |
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18+)
+- [Node.js](https://nodejs.org/) v18 or later
 - npm
 
 ### Installation
 
 ```bash
-# Clone the repo
 git clone https://github.com/RudraPrtSingh/Vibe-Match.git
 cd Vibe-Match
-
-# Install dependencies
 npm install
-
-# Start the dev server
 npm run dev
 ```
 
-The app will be running at `http://localhost:5173`.
+The development server starts at `http://localhost:5173`.
 
-### Build & Deploy
+### Build and Deploy
 
 ```bash
 # Production build
@@ -66,68 +61,66 @@ npm run deploy
 
 ---
 
-## 🎼 How the Matching Works
+## How the Matching Algorithm Works
 
-Each song in the dataset has audio feature values for:
+Each song in the dataset carries normalized audio feature values:
 
-| Dimension | Range | Low ← → High |
-|-----------|-------|---------------|
-| Energy | 0 – 100 | Chill → Intense |
-| Mood (Valence) | 0 – 100 | Melancholy → Euphoric |
-| Danceability | 0 – 100 | Sit still → Move |
-| Texture (Acousticness) | 0 – 100 | Electronic → Acoustic |
-| Tempo | 60 – 200 BPM | Slow → Fast |
+| Dimension | Range | Low | High |
+|-----------|-------|-----|------|
+| Energy | 0 – 100 | Chill | Intense |
+| Mood (Valence) | 0 – 100 | Melancholy | Euphoric |
+| Danceability | 0 – 100 | Sit still | Move |
+| Texture (Acousticness) | 0 – 100 | Electronic | Acoustic |
+| Tempo | 60 – 200 BPM | Slow | Fast |
 
-The app normalizes your slider values and each song's attributes, computes the **Euclidean distance** in 5D space, and converts it to a **0–100 match score**. The closer the song is to your vibe, the higher the score.
+The algorithm normalizes all slider values and song attributes into a common scale, computes the **Euclidean distance** across the 5-dimensional feature space, and converts the result into a **0–100 match score**. A shorter distance yields a higher score.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Vibe-Match/
-├── index.html              # Entry HTML
-├── package.json            # Dependencies & scripts
-├── vite.config.js          # Vite configuration
+├── index.html
+├── package.json
+├── vite.config.js
 └── src/
-    ├── main.jsx            # React entry point
-    ├── App.jsx             # Main app component
-    ├── styles.css          # Global styles & design system
+    ├── main.jsx
+    ├── App.jsx
+    ├── styles.css
     ├── components/
-    │   ├── ComparePanel.jsx    # Song vs. vibe comparison
-    │   ├── GenreFilter.jsx     # Genre filter chips
-    │   ├── Icons.jsx           # SVG icon components
-    │   ├── PlayerBar.jsx       # Audio player bar
-    │   ├── PresetRow.jsx       # Mood preset buttons
-    │   ├── SongCard.jsx        # Individual song card
-    │   ├── SongList.jsx        # Ranked song grid
-    │   └── VibeControls.jsx    # Slider controls
+    │   ├── ComparePanel.jsx
+    │   ├── GenreFilter.jsx
+    │   ├── Icons.jsx
+    │   ├── PlayerBar.jsx
+    │   ├── PresetRow.jsx
+    │   ├── SongCard.jsx
+    │   ├── SongList.jsx
+    │   └── VibeControls.jsx
     ├── context/
-    │   └── PlayerContext.jsx   # Audio playback state
+    │   └── PlayerContext.jsx
     ├── data/
-    │   └── songs.json          # Song dataset with audio features
+    │   └── songs.json
     └── lib/
-        └── matching.js         # Scoring algorithm & presets
+        └── matching.js
 ```
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-1. Fork the repo
-2. Create your branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">
-  Made with ❤️ and 🎵 by <a href="https://github.com/RudraPrtSingh">Rudra Pratap Singh</a>
-</p>
+Built by [Rudra Pratap Singh](https://github.com/RudraPrtSingh)
