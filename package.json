@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://RudraPrtSingh.github.io/Vibe-Match",
+  "homepage": "http://vibematch.fun",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
