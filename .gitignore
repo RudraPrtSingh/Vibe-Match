@@ -12,7 +12,7 @@ dist/
 # Editor directories
 .vscode/
 .idea/
-.claude/
+.melody/
 
 # OS files
 .DS_Store
