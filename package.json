@@ -1,5 +1,6 @@
 {
   "name": "vibe-match",
+  "description": "Vibe Match – discover music that matches your mood",
   "private": true,
   "version": "0.1.0",
   "type": "module",
